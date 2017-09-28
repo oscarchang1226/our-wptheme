@@ -45,7 +45,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 html {
-	font-family: sans-serif;
+	font-family: 'Hind Siliguri',sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
@@ -272,6 +272,7 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
+	font-family: "Oswald", sans-serif;
 	clear: both;
 }
 
@@ -564,12 +565,12 @@ a:hover, a:active {
 }
 
 @media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
+	/*.menu-toggle {*/
+		/*display: none;*/
+	/*}*/
+	/*.main-navigation ul {*/
+		/*display: block;*/
+	/*}*/
 }
 
 .site-main .comment-navigation, .site-main
@@ -846,4 +847,181 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+/*
+---------------------------------------------------
+	General Rules
+---------------------------------------------------
+ */
+* {
+	transition: all .4s ease-in-out;
+	-webkit-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+}
+body > header {
+	height: 48px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 999;
+	background-color: rgba(255, 255, 255, 1);
+}
+body > header::after {
+	content: '';
+	height: 48px;
+	width: 0;
+	background-color: black;
+	position: absolute;
+	top: 0;
+	left: 140px;
+	z-index: 9998;
+	transition: all .1s ease-in-out;
+	-webkit-transition: all .1s ease-in-out;
+	-moz-transition: all .1s ease-in-out;
+	-o-transition: all .1s ease-in-out;
+}
+body > header.scrolled::after {
+	width: calc(100% - 140px);
+}
+body > header .custom-logo-link {
+	width: 140px;
+	height: 100%;
+	background-color: white;
+}
+body > header .menu-toggle {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index:9999
+}
+header nav {
+	position: fixed;
+	width: 100%;
+	height: calc(100% - 48px);
+	bottom: 100%;
+	background-color: rgba(255, 255, 255, 1);
+	opacity: 0;
+}
+header.active {
+	background-color: white;
+}
+header.active .custom-logo-link {
+	opacity: 0;
+}
+header.active nav {
+	bottom: 0;
+	opacity: 1;
+}
+main {
+	height: auto;
+	width: 100%;
+	margin: 48px 0 0 0;
+}
+video {
+	width: 100%;
+}
+.readmore {
+	text-decoration: none;
+	color: white;
+	font-size: 14px;
+	padding: 8px;
+	display: inline-block;
+	max-width: 200px;
+	border: 1px solid white;
+}
+.readmore:hover {
+	background-color: rgba(255,255,255,1);
+	color: rgba(0,0,0,1);
+}
+h3 {
+	font-weight: 300;
+	font-size: 24px;
+}
+.hideme {
+	display: none;
+}
+/*
+---------------------------------------------------
+	Home page template rules
+---------------------------------------------------
+ */
+.page-template-homepage article header{
+	display: none;
+}
+.page-template-homepage .entry-content {
+	margin: 0;
+	padding: 8px 8px 0 8px;
+}
+.page-template-homepage .homerowheight {
+	height: calc(100vw * 0.4);
+	margin: 0;
+}
+.page-template-homepage .homerowheight .wpb_wrapper * {
+	margin: 0;
+}
+.page-template-homepage .homerowheight p img {
+	width: auto;
+	min-width: 100%;
+	height: auto;
+	max-width: none;
+	min-height: 100%;
+	opacity: 1;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.page-template-homepage .boxdescriptions {
+	display: none;
+}
+.page-template-homepage .vc_row {
+	margin: 0 0 8px 0;
+}
+.page-template-homepage .vc_column_container:not(.vc_col-sm-1) {
+	overflow: hidden;
+	margin: 0 0 8px 0;
+}
+.page-template-homepage .vc_column_container:last-child,
+.page-template-homepage .wpb_wrapper .vc_row:last-child {
+	margin: 0;
+}
+.page-template-homepage .vc_column_container > .vc_column-inner {
+	padding: 0;
+}
+.page-template-homepage .homerowheight .wpb_wrapper h3,
+.page-template-homepage .homerowheight .wpb_wrapper p {
+	position: absolute;
+	color: rgba(255,255,255,1);
+	width: 100%;
+	text-align: center;
+}
+.page-template-homepage .homerowheight .wpb_wrapper h3 {
+	bottom: 40%;
+}
+.page-template-homepage .homerowheight .wpb_wrapper p:last-child {
+	bottom: 16px;
+	transform: scaleY(0);
+	transition-delay: .2s;
+}
+.page-template-homepage .homerowheight .wpb_wrapper p:last-child .readmore {
+	margin:0 auto;
+}
+.page-template-homepage .homerowheight:hover .wpb_wrapper h3 {
+	bottom: 65%;
+}
+.page-template-homepage .homerowheight:hover .wpb_wrapper p:last-child {
+	transform: scaleY(1);
+}
+.page-template-homepage .videobox video,
+.page-template-homepage .background-box-warehouse video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+}
+.page-template-homepage .videobox:hover h3,
+.page-template-homepage .background-box-warehouse:hover h3 {
+	opacity: 0;
 }

@@ -7,17 +7,17 @@
 ( function() {
 	var container, button, menu, links, i, len;
 
-	container = document.querySelector( 'body > header' );
+	container = document.getElementById( 'site-navigation' );
 	if ( ! container ) {
 		return;
 	}
 
-	button = container.querySelector('.menu-toggle');
+	button = container.getElementsByTagName( 'button' )[0];
 	if ( 'undefined' === typeof button ) {
 		return;
 	}
 
-	menu = container.querySelector('nav');
+	menu = container.getElementsByTagName( 'ul' )[0];
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
@@ -26,15 +26,17 @@
 	}
 
 	menu.setAttribute( 'aria-expanded', 'false' );
-	menu.classList.add('nav-menu');
+	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
+		menu.className += ' nav-menu';
+	}
 
 	button.onclick = function() {
-		if ( container.classList.contains( 'active' ) ) {
-			container.classList.remove('active');
+		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
 		} else {
-			container.classList.add('active');
+			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
 		}
