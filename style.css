@@ -891,9 +891,22 @@ body > header .custom-logo-link {
 }
 body > header .menu-toggle {
 	position: absolute;
-	right: 0;
+	right: 8px;
 	top: 0;
-	z-index:9999
+	z-index: 9999;
+	width: 36px;
+	height: 48px;
+	cursor: pointer;
+}
+body > header .menu-toggle:before {
+	content: "menu";
+	text-transform: uppercase;
+	font-size: 14px;
+	letter-spacing: 1px;
+	display: block;
+	height: 24px;
+	position: absolute;
+	transform: translate(-120%, 60%);
 }
 header nav {
 	position: fixed;
@@ -940,6 +953,52 @@ h3 {
 }
 .hideme {
 	display: none;
+}
+/*
+---------------------------------------------------
+	Menu Rules
+---------------------------------------------------
+ */
+header.scrolled:not(.active) .bar1,
+header.scrolled:not(.active) .bar2,
+header.scrolled:not(.active) .bar3 {
+	border-color: white;
+}
+header.scrolled:not(.active) .menu-toggle:before {
+	color: white;
+}
+header .bar1 {
+	position: absolute;
+	border-bottom: 4px solid rgba(0,0,0,1);
+	width: 100%;
+	top: 14px;
+}
+header .bar2 {
+	position: absolute;
+	border-bottom: 4px solid rgba(0,0,0,1);
+	width: 100%;
+	top: 22px;
+}
+header .bar3 {
+	position: absolute;
+	border-bottom: 4px solid rgba(0,0,0,1);
+	width: 80%;
+	top: 30px;
+}
+header.active .menu-toggle:before {
+	content: "close";
+}
+header.active .bar1 {
+	transform: rotateZ(-45deg);
+	top: 22px;
+}
+header.active .bar2 {
+	transform: scaleX(0);
+}
+header.active .bar3 {
+	width: 100%;
+	transform: rotateZ(45deg);
+	top: 22px;
 }
 /*
 ---------------------------------------------------

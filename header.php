@@ -69,12 +69,9 @@
 
         <?php //todo replace with hamburger menu ?>
         <div class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-            <label class="labelmenu"/>MENU</label><label class="labelclose"/>CLOSE</label>
-            <div id="smithhamburger">
-                <div class="bars"><span></span><span></span><span></span>
-                    <div class="other-bar"></div>
-                </div>
-            </div>
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
         </div>
         <nav>
 			<?php
